@@ -81,7 +81,10 @@
   if (form) {
     const $ = (id) => document.getElementById(id);
     const mode = $('tt-mode'), privacy = $('tt-privacy'), result = $('tt-result');
-    const brand = $('tt-brand'), branded = $('tt-branded');
+    const disclose = $('tt-disclose'), brand = $('tt-brand'), branded = $('tt-branded'), approve = $('tt-approve');
+    const MISSING = 'You need to indicate if your content promotes yourself, a third party, or both.';
+    const PRIVATE = 'Branded content visibility cannot be set to private.';
+    const selfOnly = privacy.querySelector('option[value="SELF_ONLY"]');
     const say = (text, kind) => { result.textContent = text; result.className = kind === 'ok' ? 'ui-ok' : 'ui-error'; };
     const sync = () => {
       const direct = mode.value === 'direct';
@@ -92,7 +95,23 @@
       $('tt-music').querySelector('input').required = direct;
       privacy.required = direct;
       $('tt-draft').hidden = direct;
-      $('tt-brand-note').hidden = !(brand.checked || branded.checked);
+      // TikTok's disclosure rules: off by default; one kind required when on; branded content is never private.
+      if (!disclose.checked) { brand.checked = false; branded.checked = false; }
+      $('tt-kinds').hidden = !disclose.checked;
+      const privateChosen = privacy.value === 'SELF_ONLY';
+      branded.disabled = privateChosen;
+      branded.closest('label').title = privateChosen ? PRIVATE : '';
+      $('tt-private-note').hidden = !privateChosen;
+      selfOnly.disabled = branded.checked;
+      selfOnly.title = branded.checked ? PRIVATE : '';
+      selfOnly.textContent = branded.checked ? 'self only · not available for branded content' : 'self only';
+      const label = $('tt-label');
+      label.textContent = branded.checked ? 'Your video will be labeled as ‘Paid partnership’.'
+        : brand.checked ? 'Your video will be labeled as ‘Promotional content’.' : MISSING;
+      label.className = branded.checked || brand.checked ? 'ui-muted' : 'ui-error';
+      const missing = direct && disclose.checked && !brand.checked && !branded.checked;
+      approve.disabled = missing;
+      approve.title = missing ? MISSING : '';
       $('tt-bc').hidden = !branded.checked;
       result.textContent = '';
     };
@@ -116,7 +135,9 @@
         say('Branded TikTok content cannot be private.');
         return;
       }
-      say('Approval saved. Delivery results will appear for each destination. (Sample: nothing was sent.)', 'ok');
+      say('Approval saved. Delivery results will appear for each destination.'
+        + (mode.value === 'direct' ? ' Once TikTok receives the video, it may take a few minutes to process before it is visible on the profile.' : '')
+        + ' (Sample: nothing was sent.)', 'ok');
     });
   }
 

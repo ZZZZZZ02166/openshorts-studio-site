@@ -130,26 +130,31 @@
                 <label class="ui-check"><input type="checkbox" name="stitch" disabled> Allow Stitch</label>
               </div>
               <div class="ui-group" data-part="commercial" data-direct>
-                <label class="ui-check"><input type="checkbox" id="tt-brand"> Promotes my own brand</label>
-                <label class="ui-check"><input type="checkbox" id="tt-branded"> Paid partnership with another brand</label>
-                <p class="ui-muted" id="tt-brand-note" hidden>TikTok will label this as promotional content or a paid partnership. Paid partnerships cannot use private visibility.</p>
+                <label class="ui-check"><input type="checkbox" id="tt-disclose"> Content Disclosure Setting</label>
+                <p class="ui-muted">Indicate whether this content promotes yourself, a brand, product or service.</p>
+                <div class="ui-group" id="tt-kinds" hidden>
+                  <label class="ui-check"><input type="checkbox" id="tt-brand"> <span><strong>Your brand</strong> · You are promoting yourself or your own business. This content will be classified as Brand Organic.</span></label>
+                  <label class="ui-check"><input type="checkbox" id="tt-branded"> <span><strong>Branded content</strong> · You are promoting another brand or a third party. This content will be classified as Branded Content.</span></label>
+                  <p class="ui-muted" id="tt-private-note" hidden>Branded content visibility cannot be set to private. Choose another visibility to mark branded content.</p>
+                  <p id="tt-label"></p>
+                </div>
               </div>
               <label class="ui-check"><input type="checkbox"> Contains realistic altered or synthetic media requiring disclosure</label>
               <div class="ui-group ui-group-rule" data-part="consent">
                 <label class="ui-check"><input type="checkbox" required> I watched this saved export with sound and checked its flagged issues.</label>
                 <label class="ui-check"><input type="checkbox" required> I have permission to publish this video and its audio to the selected accounts.</label>
                 <label class="ui-check"><input type="checkbox" required> I approve sending this exact video to the connected TikTok account.</label>
-                <label class="ui-check" id="tt-music" data-direct><input type="checkbox" required> <span>By posting, I agree to TikTok’s <a href="https://www.tiktok.com/legal/page/global/music-usage-confirmation/en" target="_blank" rel="noreferrer">Music Usage Confirmation</a><span id="tt-bc" hidden> and <a href="https://www.tiktok.com/legal/page/global/bc-policy/en" target="_blank" rel="noreferrer">Branded Content Policy</a></span></span></label>
+                <label class="ui-check" id="tt-music" data-direct><input type="checkbox" required> <span>By posting, you agree to TikTok’s <span id="tt-bc" hidden><a href="https://www.tiktok.com/legal/page/global/bc-policy/en" target="_blank" rel="noreferrer">Branded Content Policy</a> and </span><a href="https://www.tiktok.com/legal/page/global/music-usage-confirmation/en" target="_blank" rel="noreferrer">Music Usage Confirmation</a>.</span></label>
               </div>
               <div data-part="approve">
-                <button class="ui-btn ui-primary" type="submit"><svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Approve and send</button>
+                <button class="ui-btn ui-primary" type="submit" id="tt-approve"><svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Approve and send</button>
                 <p id="tt-result" role="status" aria-live="polite"></p>
               </div>
             </form>
           </div>
           <div class="notes notes-right">
-            <button type="button" class="note" data-note="commercial" style="top:470px"><b>Commercial content</b><span>Mark your own brand or a paid partnership, and TikTok labels the post. Paid partnerships can’t be private.</span></button>
-            <button type="button" class="note" data-note="consent" style="top:620px"><b>Your consent</b><span>You confirm you checked the video, hold the rights, and agree to TikTok’s Music Usage Confirmation.</span></button>
+            <button type="button" class="note" data-note="commercial" style="top:470px"><b>Content disclosure</b><span>Off by default. Turn it on to mark your own brand or branded content, and TikTok labels the post. Branded content can’t be private.</span></button>
+            <button type="button" class="note" data-note="consent" style="top:620px"><b>Your consent</b><span>You confirm you checked the video and hold the rights, and agree to TikTok’s Music Usage Confirmation (and Branded Content Policy for branded content).</span></button>
             <button type="button" class="note" data-note="approve" style="top:770px"><b>Approve and send</b><span>Nothing reaches TikTok before this. Studio then uploads this exact export, and no other.</span></button>
           </div>
         </div>
