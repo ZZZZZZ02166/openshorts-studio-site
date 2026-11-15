@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy · OpenShorts Studio</title>
+  <meta name="description" content="How OpenShorts Studio handles personal data, including the data it receives when you connect a TikTok, YouTube or Instagram account.">
+  <link rel="canonical" href="https://zzzzzz02166.github.io/openshorts-studio-site/privacy.html">
+  <meta name="theme-color" content="#0d0d0d">
+  <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/instrument-serif-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/site.css">
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="page">
+  <header class="grid bar">
+    <a class="wordmark" href="./" aria-label="OpenShorts Studio, home">
+      <svg viewBox="0 0 27 29" fill="none" aria-hidden="true"><path d="M3 3h8v10H3zM16 3h8v23h-8zM3 18h8v8H3z" stroke="currentColor" stroke-width="2.4"/></svg>
+      <span>openshorts <span>studio</span></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="./#how">How it works</a>
+      <a href="privacy.html" aria-current="page">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="data-deletion.html">Data deletion</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <div class="grid doc-head">
+      <h1 data-reveal>Privacy policy</h1>
+      <p class="standfirst" data-reveal style="--d:1">Studio runs on your own computer. It keeps what it needs there, encrypted where it matters, and sends your videos only where you tell it to.</p>
+      <p class="doc-meta" data-reveal style="--d:2">Last updated 15 November 2026<br>Applies to OpenShorts Studio and this website</p>
+    </div>
+
+    <div class="grid doc-body">
+      <nav class="doc-aside" aria-label="On this page">
+        <p>On this page</p>
+        <ol>
+          <li><a href="#short">The short version</a></li>
+          <li><a href="#who">Who is responsible</a></li>
+          <li><a href="#what">What Studio handles</a></li>
+          <li><a href="#tiktok">TikTok data</a></li>
+          <li><a href="#others">YouTube and Instagram</a></li>
+          <li><a href="#storage">Where it is kept</a></li>
+          <li><a href="#sharing">Who receives data</a></li>
+          <li><a href="#retention">How long it is kept</a></li>
+          <li><a href="#choices">Your choices and rights</a></li>
+          <li><a href="#children">Children</a></li>
+          <li><a href="#site">This website</a></li>
+          <li><a href="#changes">Changes</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ol>
+      </nav>
+
+      <div class="doc-text">
+        <section id="short">
+          <h2>The short version</h2>
+          <ul>
+            <li>OpenShorts Studio (“Studio”) is software that runs on your own computer. It has no sign-up, no user accounts and no server of mine behind it.</li>
+            <li>When you connect TikTok, TikTok gives Studio an access token and basic account details. Studio keeps them encrypted on your computer and uses them only to post the videos you approve.</li>
+            <li>I do not receive, see, sell or share your TikTok data, your videos or anything else Studio stores. Studio sends no analytics, advertising or tracking data to anyone.</li>
+          </ul>
+        </section>
+
+        <section id="who">
+          <h2>Who is responsible</h2>
+          <p>Studio is developed by Nioo Zhi Qi, an individual developer (“I”, “me”). You can reach me at <a href="mailto:clipwave1104@gmail.com">clipwave1104@gmail.com</a>.</p>
+          <p>Studio runs on the computer of the person who installs and operates it. The data it stores is held on that computer, under that person’s control, and is not transferred to me.</p>
+        </section>
+
+        <section id="what">
+          <h2>What Studio handles, and why</h2>
+          <h3>Your videos and projects</h3>
+          <p>Studio stores the videos you add (files you choose, or videos it downloads from a link you paste), the transcripts it makes, and the clips, captions, titles, quality reports and exports it produces. They stay in Studio’s data folder on your computer and are used only to edit and export your clips.</p>
+          <h3>Your developer app credentials</h3>
+          <p>To connect a platform, you register your own developer app with it and put that app’s client key (or ID) and secret in a local <code>.env</code> file on your computer. Studio reads them from there and never shows them in its interface.</p>
+          <h3>Processing on your computer</h3>
+          <p>By default, transcription and moment selection run with local models (Whisper, and a language model served by Ollama on your computer). Studio sends transcripts or video frames to a remote AI service only if whoever runs Studio explicitly turns that on: <code>STUDIO_ALLOW_REMOTE_LLM</code> for a remote language-model server, or <code>STUDIO_ALLOW_REMOTE_VISION</code> with a Google Gemini API key. In that case the chosen provider’s terms and privacy policy apply to what it receives.</p>
+        </section>
+
+        <section id="tiktok">
+          <h2>TikTok data</h2>
+          <p>Studio connects to TikTok through TikTok’s Login Kit and Content Posting API. You authorize it on TikTok’s own page, and you can see and decline the permissions there. Studio uses these permissions (scopes):</p>
+          <table>
+            <thead><tr><th scope="col">Permission</th><th scope="col">What Studio gets or does</th><th scope="col">Why</th></tr></thead>
+            <tbody>
+              <tr><td><code>user.info.basic</code></td><td>Your open ID (an identifier TikTok creates for this app) and display name</td><td>To show which account is connected, and to make sure each post goes to the account you approved</td></tr>
+              <tr><td><code>video.publish</code></td><td>Reads your current creator settings, then posts a video you approved</td><td>Direct Post: publishing an approved clip with the visibility and settings you chose</td></tr>
+              <tr><td><code>video.upload</code></td><td>Sends a video you approved to your TikTok inbox as a draft</td><td>Send to drafts: you finish and post it in the TikTok app</td></tr>
+            </tbody>
+          </table>
+          <p>Studio requests only the permissions enabled for its TikTok app, and stops if TikTok does not grant account access plus at least one posting permission.</p>
+          <h3>What Studio receives from TikTok</h3>
+          <ul>
+            <li><strong>Account details:</strong> your open ID and display name.</li>
+            <li><strong>Access and refresh tokens</strong>, when they expire, and which permissions you granted.</li>
+            <li><strong>Creator settings</strong>, each time you prepare a Direct Post: your nickname and username, the visibility options available to you, whether comments, Duet or Stitch are turned off for your account, and the longest video you can post. Studio shows these so you choose only options TikTok allows. The username is kept with the post record to build the post’s link.</li>
+            <li><strong>Post records:</strong> TikTok’s publish ID, the temporary upload address, the post’s status and, once published, its public post ID.</li>
+          </ul>
+          <p>Studio does not request or read your followers, likes, comments, messages, watch history, analytics, email address, phone number or other videos.</p>
+          <h3>What Studio sends to TikTok</h3>
+          <p>Only after you approve a specific export: the video file itself, its caption, the visibility you chose, your comment, Duet and Stitch settings, and any commercial-content or AI-generated-content disclosure you selected. The file goes straight from your computer to TikTok’s upload servers, in pieces, using TikTok’s file upload method. In Send to drafts mode, only the video goes to your TikTok inbox.</p>
+        </section>
+
+        <section id="others">
+          <h2>YouTube and Instagram</h2>
+          <p>If you connect them, Studio handles the same kinds of data for YouTube and Instagram.</p>
+          <ul>
+            <li><strong>YouTube:</strong> your channel ID and title, and tokens for the <code>youtube.upload</code> and <code>youtube.readonly</code> permissions, used to upload approved clips and check their processing status. Studio uses YouTube API Services; by connecting YouTube you also agree to the <a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a>, and Google handles data under the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>. You can revoke Studio’s access at any time in your <a href="https://myaccount.google.com/permissions">Google account permissions</a>.</li>
+            <li><strong>Instagram:</strong> your Instagram user ID and username, and tokens for the <code>instagram_business_basic</code> and <code>instagram_business_content_publish</code> permissions, used to publish approved clips as Reels. Instagram fetches each approved video from a one-hour link that serves only that file (see below). <a href="https://privacycenter.instagram.com/policy">Meta’s Privacy Policy</a> applies to what Instagram receives.</li>
+          </ul>
+        </section>
+
+        <section id="storage">
+          <h2>Where it is kept, and how it is protected</h2>
+          <ul>
+            <li>Everything Studio stores is in its data folder on your computer: a local database plus your project files.</li>
+            <li>Access tokens, refresh tokens, sign-in verification codes and upload sessions are encrypted with Fernet (AES-128 in CBC mode with an HMAC-SHA256 check). The encryption key is a file in the same data folder that only your computer account can read.</li>
+            <li>Tokens and upload addresses are never sent to Studio’s browser interface. Each sign-in uses a one-time state value that expires after ten minutes. The TikTok and YouTube sign-ins also use PKCE and return to an address on your own computer (<code>127.0.0.1</code>).</li>
+            <li>Studio’s interface and API answer only on your computer. The one exception: while you use Instagram, an optional tunnel lets Instagram reach Studio’s sign-in addresses and the one-hour video links, and nothing else.</li>
+          </ul>
+          <p>No method of storage is perfectly secure. Keep your computer and its backups protected: anyone with both the data folder and its key file could read the stored tokens.</p>
+        </section>
+
+        <section id="sharing">
+          <h2>Who receives data</h2>
+          <ul>
+            <li><strong>TikTok, YouTube and Instagram</strong> receive what you send them when you connect an account and approve a post. Their own policies apply: <a href="https://www.tiktok.com/legal/page/global/privacy-policy/en">TikTok Privacy Policy</a>, <a href="https://policies.google.com/privacy">Google Privacy Policy</a>, <a href="https://privacycenter.instagram.com/policy">Meta Privacy Policy</a>.</li>
+            <li><strong>Cloudflare</strong>, only if you publish to Instagram through Studio’s optional tunnel: Instagram’s sign-in return and its download of the approved video pass through a temporary Cloudflare address. <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare’s Privacy Policy</a> applies.</li>
+            <li><strong>Video sites you link to</strong>: when you paste a link, Studio downloads that video from the site, as your browser would.</li>
+            <li><strong>Remote AI services</strong>, only if they are turned on as described above.</li>
+            <li><strong>Software and model publishers</strong>: installing Studio and its models downloads them from their publishers (for example the Python and npm package registries, Hugging Face and Ollama). These downloads do not include your data. Studio turns off the usage reporting and update checks of its video renderer, HyperFrames.</li>
+          </ul>
+          <p>Nobody else receives data from Studio. I do not sell personal data, share it for advertising, or use it to train AI models.</p>
+        </section>
+
+        <section id="retention">
+          <h2>How long it is kept</h2>
+          <ul>
+            <li><strong>TikTok tokens and account details</strong> stay until you disconnect TikTok in Studio, which deletes them immediately. If TikTok revokes or expires them, Studio asks you to reconnect.</li>
+            <li><strong>Projects, exports and post records</strong> stay in Studio’s data folder until you delete them. Post records keep the history of what was sent where, so Studio never posts the same approval twice.</li>
+            <li><strong>Posts on TikTok</strong> stay on TikTok until you delete them there. Studio cannot delete them.</li>
+            <li><strong>Emails you send me</strong> are kept as long as needed to answer them, and deleted on request.</li>
+          </ul>
+        </section>
+
+        <section id="choices">
+          <h2>Your choices and rights</h2>
+          <ul>
+            <li>Disconnect TikTok in Studio (Local setup → Connected accounts → TikTok → Disconnect). Studio asks TikTok to revoke its access and deletes the stored tokens.</li>
+            <li>Remove Studio’s access in the TikTok app: Profile → Menu → Settings and privacy → Security &amp; permissions → Apps and services permissions.</li>
+            <li>Delete Studio’s data folder to remove everything it stored. <a href="data-deletion.html">The data deletion page</a> has every step.</li>
+          </ul>
+          <p>Depending on where you live, you may have rights to access, correct, delete, or object to the processing of your personal data. Because Studio keeps its data on your computer, you can act on most of these directly. For anything I hold, such as our emails, write to me and I will respond as soon as I can, and within any time limit the law that applies to you sets. You can also complain to your local data protection authority.</p>
+        </section>
+
+        <section id="children">
+          <h2>Children</h2>
+          <p>Studio is not made for children. Only connect an account you are old enough to hold under the platform’s own rules (TikTok requires users to meet a minimum age, which depends on the country), and do not connect accounts that belong to children.</p>
+        </section>
+
+        <section id="site">
+          <h2>This website</h2>
+          <p>This website is hosted on GitHub Pages. It sets no cookies and uses no analytics, trackers, advertising or third-party scripts; its fonts are served from the site itself. GitHub may record technical information such as your IP address when it serves the pages; see the <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement">GitHub General Privacy Statement</a>.</p>
+        </section>
+
+        <section id="changes">
+          <h2>Changes to this policy</h2>
+          <p>If Studio starts handling data differently, I will update this page before the change takes effect and change the date at the top. Significant changes will be described on this page.</p>
+        </section>
+
+        <section id="contact">
+          <h2>Contact</h2>
+          <p>Questions or requests about privacy: <a href="mailto:clipwave1104@gmail.com?subject=Privacy%20request">clipwave1104@gmail.com</a>, subject “Privacy request”. Please don’t send passwords, tokens or app secrets by email.</p>
+        </section>
+      </div>
+    </div>
+  </main>
+</div>
+
+<footer class="footer">
+  <div class="grid footer-cols">
+    <ul class="footer-col">
+      <li>Studio</li>
+      <li><a href="./#how">How it works</a></li>
+      <li><a href="./#tiktok">Posting to TikTok</a></li>
+      <li><a href="./#data">Your data</a></li>
+      <li><a href="./#questions">Questions</a></li>
+    </ul>
+    <ul class="footer-col">
+      <li>Policies</li>
+      <li><a href="privacy.html">Privacy policy</a></li>
+      <li><a href="terms.html">Terms of service</a></li>
+      <li><a href="data-deletion.html">Data deletion</a></li>
+    </ul>
+    <ul class="footer-col">
+      <li>Contact</li>
+      <li><a href="mailto:clipwave1104@gmail.com">clipwave1104@gmail.com</a></li>
+      <li><a href="contact.html">Contact page</a></li>
+    </ul>
+    <div class="footer-col">
+      <ul class="footer-about"><li>About</li></ul>
+      <p>Built on OpenShorts, open-source software under the MIT licence. Not affiliated with or endorsed by TikTok, YouTube or Instagram.</p>
+    </div>
+  </div>
+  <div></div>
+  <div>
+    <div class="footer-word" aria-hidden="true">
+      <svg class="word-one" viewBox="0 0 1000 118"><text x="0" y="88" textLength="1000" lengthAdjust="spacing" font-family="Geist, Arial, sans-serif" font-weight="500" font-size="117" letter-spacing="-5" fill="currentColor">openshorts studio</text></svg>
+      <svg class="word-two" viewBox="0 0 1000 380"><text x="0" y="150" textLength="1000" lengthAdjust="spacing" font-family="Geist, Arial, sans-serif" font-weight="500" font-size="196" letter-spacing="-8" fill="currentColor">openshorts</text><text x="0" y="345" textLength="560" lengthAdjust="spacing" font-family="Geist, Arial, sans-serif" font-weight="500" font-size="196" letter-spacing="-8" fill="currentColor">studio</text></svg>
+    </div>
+    <p class="footer-legal">© 2026 Nioo Zhi Qi. TikTok, YouTube and Instagram are trademarks of their respective owners. Fonts: Geist and Instrument Serif, SIL Open Font License.</p>
+  </div>
+</footer>
+<script src="assets/site.js" defer></script>
+</body>
+</html>

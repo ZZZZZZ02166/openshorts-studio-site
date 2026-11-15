@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Data Deletion · OpenShorts Studio</title>
+  <meta name="description" content="How to disconnect TikTok from OpenShorts Studio, revoke its access and delete everything Studio stored.">
+  <link rel="canonical" href="https://zzzzzz02166.github.io/openshorts-studio-site/data-deletion.html">
+  <meta name="theme-color" content="#0d0d0d">
+  <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/instrument-serif-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/site.css">
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="page">
+  <header class="grid bar">
+    <a class="wordmark" href="./" aria-label="OpenShorts Studio, home">
+      <svg viewBox="0 0 27 29" fill="none" aria-hidden="true"><path d="M3 3h8v10H3zM16 3h8v23h-8zM3 18h8v8H3z" stroke="currentColor" stroke-width="2.4"/></svg>
+      <span>openshorts <span>studio</span></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="./#how">How it works</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="data-deletion.html" aria-current="page">Data deletion</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <div class="grid doc-head">
+      <h1 data-reveal>Delete your data</h1>
+      <p class="standfirst" data-reveal style="--d:1">Studio keeps its data on your own computer, so you can delete all of it yourself. Here is every step.</p>
+      <p class="doc-meta" data-reveal style="--d:2">Last updated 15 November 2026</p>
+    </div>
+
+    <div class="grid doc-body">
+      <nav class="doc-aside" aria-label="On this page">
+        <p>On this page</p>
+        <ol>
+          <li><a href="#disconnect">Disconnect in Studio</a></li>
+          <li><a href="#tiktok-app">Remove access in TikTok</a></li>
+          <li><a href="#local">Delete local data</a></li>
+          <li><a href="#posts">Posts on TikTok</a></li>
+          <li><a href="#others">YouTube and Instagram</a></li>
+          <li><a href="#ask">Ask me</a></li>
+        </ol>
+      </nav>
+      <div class="doc-text">
+        <ol class="steps">
+          <li id="disconnect">
+            <h2>Disconnect TikTok in Studio</h2>
+            <p>In Studio, open <strong>Local setup → Connected accounts → TikTok</strong> and choose <strong>Disconnect</strong>. Studio asks TikTok to revoke its access and immediately deletes the access and refresh tokens from your computer.</p>
+            <p>If Studio then says “Local account disconnected. Remove this app in the platform’s connected-app settings too.”, TikTok did not confirm the revocation. Do the next step as well.</p>
+          </li>
+          <li id="tiktok-app">
+            <h2>Remove Studio’s access in TikTok</h2>
+            <p>In the TikTok app, tap <strong>Profile</strong>, then the <strong>Menu</strong> button, then <strong>Settings and privacy → Security &amp; permissions → Apps and services permissions</strong>. Choose OpenShorts Studio and tap <strong>Remove access</strong>. TikTok describes these steps in its help article <a href="https://support.tiktok.com/en/safety-hc/account-and-user-safety/connect-to-third-party-apps">Connect to third-party apps</a>.</p>
+          </li>
+          <li id="local">
+            <h2>Delete Studio’s data from your computer</h2>
+            <p>Quit Studio, then delete its data folder: <code>studio-data</code> inside Studio’s folder, or the folder set by <code>STUDIO_DATA_DIR</code>. This removes:</p>
+            <ul>
+              <li>the database, with your account details, encrypted tokens and post history;</li>
+              <li>the encryption key;</li>
+              <li>your projects, transcripts, clips and exports.</li>
+            </ul>
+            <p>To remove your TikTok developer app keys as well, delete the <code>STUDIO_TIKTOK_CLIENT_ID</code> and <code>STUDIO_TIKTOK_CLIENT_SECRET</code> lines from Studio’s <code>.env</code> file. Copies in your own backups are deleted when you delete those backups.</p>
+          </li>
+          <li id="posts">
+            <h2>Delete posts on TikTok</h2>
+            <p>Studio cannot delete videos that are already on TikTok. Delete them in the TikTok app. TikTok handles your account and posts under its <a href="https://www.tiktok.com/legal/page/global/privacy-policy/en">Privacy Policy</a>.</p>
+          </li>
+          <li id="others">
+            <h2>YouTube and Instagram</h2>
+            <p>Disconnect them in Studio the same way. You can also remove Studio’s access in your <a href="https://myaccount.google.com/permissions">Google account permissions</a> and in Instagram’s settings for connected apps and websites.</p>
+          </li>
+          <li id="ask">
+            <h2>Ask me</h2>
+            <p>I don’t hold a copy of your Studio data, so there is nothing of it on my side to delete. If you emailed me and want our correspondence deleted, or you want help with any step, write to <a href="mailto:clipwave1104@gmail.com?subject=Data%20deletion">clipwave1104@gmail.com</a> with the subject “Data deletion”. I’ll confirm by email once it is done.</p>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </main>
+</div>
+
+<footer class="footer">
+  <div class="grid footer-cols">
+    <ul class="footer-col">
+      <li>Studio</li>
+      <li><a href="./#how">How it works</a></li>
+      <li><a href="./#tiktok">Posting to TikTok</a></li>
+      <li><a href="./#data">Your data</a></li>
+      <li><a href="./#questions">Questions</a></li>
+    </ul>
+    <ul class="footer-col">
+      <li>Policies</li>
+      <li><a href="privacy.html">Privacy policy</a></li>
+      <li><a href="terms.html">Terms of service</a></li>
+      <li><a href="data-deletion.html">Data deletion</a></li>
+    </ul>
+    <ul class="footer-col">
+      <li>Contact</li>
+      <li><a href="mailto:clipwave1104@gmail.com">clipwave1104@gmail.com</a></li>
+      <li><a href="contact.html">Contact page</a></li>
+    </ul>
+    <div class="footer-col">
+      <ul class="footer-about"><li>About</li></ul>
+      <p>Built on OpenShorts, open-source software under the MIT licence. Not affiliated with or endorsed by TikTok, YouTube or Instagram.</p>
+    </div>
+  </div>
+  <div></div>
+  <div>
+    <div class="footer-word" aria-hidden="true">
+      <svg class="word-one" viewBox="0 0 1000 118"><text x="0" y="88" textLength="1000" lengthAdjust="spacing" font-family="Geist, Arial, sans-serif" font-weight="500" font-size="117" letter-spacing="-5" fill="currentColor">openshorts studio</text></svg>
+      <svg class="word-two" viewBox="0 0 1000 380"><text x="0" y="150" textLength="1000" lengthAdjust="spacing" font-family="Geist, Arial, sans-serif" font-weight="500" font-size="196" letter-spacing="-8" fill="currentColor">openshorts</text><text x="0" y="345" textLength="560" lengthAdjust="spacing" font-family="Geist, Arial, sans-serif" font-weight="500" font-size="196" letter-spacing="-8" fill="currentColor">studio</text></svg>
+    </div>
+    <p class="footer-legal">© 2026 Nioo Zhi Qi. TikTok, YouTube and Instagram are trademarks of their respective owners. Fonts: Geist and Instrument Serif, SIL Open Font License.</p>
+  </div>
+</footer>
+<script src="assets/site.js" defer></script>
+</body>
+</html>

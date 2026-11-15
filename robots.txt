@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://zzzzzz02166.github.io/openshorts-studio-site/sitemap.xml
